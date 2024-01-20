@@ -1,0 +1,64 @@
+@import './reset.css';
+
+div#wrapper {
+    width: 100vw;
+    height: 100vh;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+div#wrapper.mode-dark {
+    background-color: #444;
+}
+
+div#wrapper.mode-light {
+    background-color: #d2d2d2;
+}
+
+div#wrapper > * {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+div#wrapper > header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    padding: 10px;
+}
+
+div#wrapper > main {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow: hidden;
+}
+
+div#wrapper > main > div.container-condition {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 10px;
+    margin: 10px 0;
+}
+
+div#wrapper > main > div.container-contents {
+    display: flex;
+    flex: 1;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+div#wrapper > main > div.container-contents > section {
+    width: 100%;
+    flex-shrink: 0;
+    font-size: 50px;
+}
+
+div#wrapper > nav {
+    height: 50px;
+}
