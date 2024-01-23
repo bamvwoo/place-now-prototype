@@ -1,40 +1,37 @@
 @import './reset.css';
 
-div#wrapper {
-    width: 100vw;
-    height: 100vh;
+#wrapper {
+    width: 100%;
     max-width: 500px;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    margin: 0 auto;
+    overflow-x: hidden;
 }
 
-div#wrapper.mode-dark {
-    background-color: #444;
-}
-
-div#wrapper.mode-light {
-    background-color: #d2d2d2;
-}
-
-div#wrapper > * {
-    width: 100%;
+#wrapper > * {
     box-sizing: border-box;
 }
 
-div#wrapper > header {
+#wrapper > header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: inherit;
+    max-width: inherit;
     height: 80px;
     padding: 10px;
+    position: fixed;
+    top: 0;
 }
 
-div#wrapper > main {
+#wrapper > main {
     display: flex;
+    width: 100%;
     flex-direction: column;
     flex: 1;
-    overflow: hidden;
+    padding-top: 100px;
+    padding-bottom: 60px;
 }
 
 div#wrapper > main > div.container-condition {
@@ -49,8 +46,7 @@ div#wrapper > main > div.container-condition {
 div#wrapper > main > div.container-contents {
     display: flex;
     flex: 1;
-    overflow-x: hidden;
-    overflow-y: auto;
+    overflow: hidden;
 }
 
 div#wrapper > main > div.container-contents > section {
@@ -60,5 +56,9 @@ div#wrapper > main > div.container-contents > section {
 }
 
 div#wrapper > nav {
-    height: 50px;
+    width: inherit;
+    max-width: inherit;
+    height: 45px;
+    position: fixed;
+    bottom: 0;
 }

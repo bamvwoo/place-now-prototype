@@ -1,7 +1,25 @@
 @import './layout.css';
 
-div#wrapper {
+#wrapper {
     transition: .5s ease;
+}
+
+#wrapper.mode-dark {
+    background-color: var(--main-std-dark-color);
+}
+
+#wrapper.mode-light {
+    background-color: var(--main-std-light-color);
+}
+
+/** HEADER */
+
+#wrapper.mode-dark header {
+    background-color: var(--main-std-dark-color);
+}
+
+#wrapper.mode-light header {
+    background-color: var(--main-std-light-color);
 }
 
 #mainLogo {
@@ -14,15 +32,15 @@ div#wrapper {
     margin-left: 10px;
 }
 
-#mainLogo.mode-dark {
+.mode-dark #mainLogo {
     background-image: url(../images/logo_main_light.png);
 }
 
-#mainLogo.mode-light {
+.mode-light #mainLogo {
     background-image: url(../images/logo_main_dark.png);
 }
 
-#globalProfile {
+#headerProfileContainer {
     width: 50px;
     height: 100%;
     display: flex;
@@ -32,16 +50,26 @@ div#wrapper {
     cursor: pointer;
 }
 
-#globalProfile a.btn-login {
+#headerProfileContainer .btn-login {
     font-size: 15px;
 }
 
-div.container-conditions {
-    margin: 20px 0;
-    padding: 0 10px;
+.mode-dark #headerProfileContainer .btn-login {
+    color: var(--main-std-light-color);
 }
 
-div.container-conditions ul {
+.mode-light #headerProfileContainer .btn-login {
+    color: var(--main-std-dark-color);
+}
+
+/** MAIN */
+
+.container-conditions {
+    padding: 0 10px;
+    position: fixed;
+}
+
+.container-conditions ul {
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -69,25 +97,25 @@ div.container-condition-item:has(select.condition-select) {
 }
 
 div.container-condition-item.mode-dark {
-    color: #d2d2d2;
-    border: 1.5px solid #d2d2d2;
+    color: var(--main-std-light-color);
+    border: 1.5px solid var(--main-std-light-color);
 }
 
 div.container-condition-item.mode-dark:hover,
 div.container-condition-item.mode-dark.selected {
-    color: #444;
-    background-color: #d2d2d2;
+    color: var(--main-std-dark-color);
+    background-color: var(--main-std-light-color);
 }
 
 div.container-condition-item.mode-light {
-    color: #444;
-    border: 1.5px solid #444;
+    color: var(--main-std-dark-color);
+    border: 1.5px solid var(--main-std-dark-color);
 }
 
 div.container-condition-item.mode-light:hover,
 div.container-condition-item.mode-light.selected {
-    color: #d2d2d2;
-    background-color: #444;
+    color: var(--main-std-light-color);
+    background-color: var(--main-std-dark-color);
 }
 
 div.container-condition-item select.condition-select {
@@ -101,21 +129,21 @@ div.container-condition-item select.condition-select {
 }
 
 div.container-condition-item.mode-dark select.condition-select {
-    color: #d2d2d2;
+    color: var(--main-std-light-color);
 }
 
 div.container-condition-item.mode-light select.condition-select {
-    color: #444;
+    color: var(--main-std-dark-color);
 }
 
 div.container-condition-item.mode-dark:hover,
 div.container-condition-item.mode-dark select.condition-select:hover {
-    color: #444;
+    color: var(--main-std-dark-color);
 }
 
 div.container-condition-item.mode-light:hover,
 div.container-condition-item.mode-light select.condition-select:hover {
-    color: #d2d2d2;
+    color: var(--main-std-light-color);
 }
 
 div#regionConditionContainer {
@@ -162,13 +190,13 @@ div#regionConditionContainer select.condition-select {
 }
 
 div#regionConditionContainer.mode-dark select.condition-select {
-    background-color: #444;
-    color: #d2d2d2;
+    background-color: var(--main-std-dark-color);
+    color: var(--main-std-light-color);
 }
 
 div#regionConditionContainer.mode-light select.condition-select {
-    background-color: #d2d2d2;
-    color: #444;
+    background-color: var(--main-std-light-color);
+    color: var(--main-std-dark-color);
 }
 
 div#regionConditionContainer select.condition-select:hover {
@@ -179,11 +207,15 @@ div#regionConditionContainer select.condition-select:hover {
 }
 
 div#regionConditionContainer.mode-dark select.condition-select:hover {
-    border: 1.5px solid #d2d2d2;
+    border: 1.5px solid var(--main-std-light-color);
 }
 
 div#regionConditionContainer.mode-light select.condition-select:hover {
-    border: 1.5px solid #444;
+    border: 1.5px solid var(--main-std-dark-color);
+}
+
+#placeItemContainer {
+    margin-top: 60px;
 }
 
 div.container-toggle-btn {
@@ -195,13 +227,13 @@ div.container-toggle-btn {
 }
 
 div.container-toggle-btn.mode-dark {
-    border: 2px solid #d2d2d2;
-    background-color: #d2d2d2;
+    border: 2px solid var(--main-std-light-color);
+    background-color: var(--main-std-light-color);
 }
 
 div.container-toggle-btn.mode-light {
-    border: 2px solid #444;
-    background-color: #444;
+    border: 2px solid var(--main-std-dark-color);
+    background-color: var(--main-std-dark-color);
 }
 
 div.container-toggle-btn, div.container-toggle-btn div.toggle-btn {
@@ -218,13 +250,13 @@ div.container-toggle-btn div.toggle-btn {
 }
 
 div.container-toggle-btn.mode-dark div.toggle-btn {
-    border: 2px solid #d2d2d2;
-    background-color: #444;
+    border: 2px solid var(--main-std-light-color);
+    background-color: var(--main-std-dark-color);
 }
 
 div.container-toggle-btn.mode-light div.toggle-btn {
-    border: 2px solid #444;
-    background-color: #d2d2d2;
+    border: 2px solid var(--main-std-dark-color);
+    background-color: var(--main-std-light-color);
 }
 
 div.container-toggle-btn.enabled {
@@ -246,9 +278,12 @@ div.container-toggle-btn.enabled div.toggle-btn {
     }
 }
 
-div#wrapper > nav {
-    border: 1px solid black;
-    position: relative;
+.mode-dark nav {
+    background-color: #333;
+}
+
+.mode-light nav {
+    background-color: #c2c2c2;
 }
 
 div.container-ai-chat {
@@ -256,8 +291,8 @@ div.container-ai-chat {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 80vw;
-    height: 80vh;
+    width: 90%;
+    height: 70vh;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -279,13 +314,13 @@ div.container-ai-chat div.area-ai-chat {
 
 div.container-ai-chat div.area-ai-chat.mode-dark {
     background-color: #222;
-    color: #d2d2d2;
+    color: var(--main-std-light-color);
     box-shadow: -5px -5px 30px #333;
 }
 
 div.container-ai-chat div.area-ai-chat.mode-light {
     background-color: #e2e2e2;
-    color: #444;
+    color: var(--main-std-dark-color);
     box-shadow: -5px -5px 30px #999;
 }
 
@@ -386,13 +421,13 @@ div.container-ai-chat div.area-ai-chat div.container-prompt input {
 }
 
 div.container-ai-chat div.area-ai-chat.mode-dark div.container-prompt input {
-    background-color: #444;
-    color: #d2d2d2;
+    background-color: var(--main-std-dark-color);
+    color: var(--main-std-light-color);
 }
 
 div.container-ai-chat div.area-ai-chat.mode-light div.container-prompt input {
-    background-color: #d2d2d2;
-    color: #444;
+    background-color: var(--main-std-light-color);
+    color: var(--main-std-dark-color);
 }
 
 div.container-ai-chat div.area-ai-chat div.container-prompt button {
@@ -406,13 +441,13 @@ div.container-ai-chat div.area-ai-chat div.container-prompt button {
 }
 
 div.container-ai-chat div.area-ai-chat.mode-dark div.container-prompt button {
-    background-color: #d2d2d2;
-    color: #444;
+    background-color: var(--main-std-light-color);
+    color: var(--main-std-dark-color);
 }
 
 div.container-ai-chat div.area-ai-chat.mode-light div.container-prompt button {
-    background-color: #444;
-    color: #d2d2d2;
+    background-color: var(--main-std-dark-color);
+    color: var(--main-std-light-color);
 }
 
 div.container-ai-chat div.btn-open-ai-chat {
@@ -477,4 +512,25 @@ div.container-ai-chat div.btn-open-ai-chat span {
     font-weight: 900;
     color: #fff;
     margin-left: -5px;
+}
+
+.container-place-list {
+    padding: 0 5%;
+}
+
+.place-item {
+    height: 300px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.mode-dark .place-item {
+    background-color: #666;
+    box-shadow: 5px 5px 1px #333;
+}
+
+.mode-light .place-item {
+    background-color: #f2f2f2;
+    box-shadow: 5px 5px 1px #c2c2c2;
 }

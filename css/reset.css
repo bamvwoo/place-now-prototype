@@ -30,7 +30,6 @@ footer, header, hgroup, menu, nav, section {
 
 body {
 	line-height: 1;
-	overscroll-behavior: none;
 }
 
 ol, ul {
@@ -68,10 +67,15 @@ a {
 
 .mode-dark span, .mode-dark p, .mode-dark a,
 span.mode-dark, p.mode-dark, a.mode-dark {
-	color: #d2d2d2;
+	color: var(--main-std-light-color);
 }
 
 .mode-light span, .mode-light p, .mode-light a,
 span.mode-light, p.mode-light, a.mode-light {
-	color: #444;
+	color: var(--main-std-dark-color);
+}
+
+:root {
+	--main-std-dark-color: #444;
+	--main-std-light-color: #d2d2d2;
 }

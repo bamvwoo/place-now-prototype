@@ -11,69 +11,59 @@
 <body>
     <div id="wrapper" class="mode-dark">
         <header>
-            <div id="mainLogo" class="mode-dark"></div>
-            <div id="globalProfile" class="mode-dark">
+            <div id="mainLogo"></div>
+            <div id="headerProfileContainer" class="mode-dark">
                 <a class="btn-login" href="#">로그인</a>
             </div>
         </header>
         <main>
-            <div class="container-conditions">
-                <ul>
-                    <li>
-                        <div class="container-condition-item mode-dark">
-                            <span>🔥 인기</span>
-                        </div>
-                    </li>
-                    <li>
-                        <div id="regionConditionContainer" class="container-condition-item mode-dark">
-                            <div class="background-region"></div>
-                            <select class="condition-select" id="region" name="region">
-                                <option value="">지역</option>
-                                <option value="SI">서울인천</option>
-                                <option value="GG">경기</option>
-                                <option value="GW">강원</option>
-                                <option value="DC">대전충청</option>
-                                <option value="GJ">광주전라</option>
-                                <option value="DG">대구경북</option>
-                                <option value="BG">부산경남</option>
-                                <option value="JJ">제주</option>
-                            </select>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="container-condition-item mode-dark">
-                            <select class="condition-select" id="category" name="category">
-                                <option value="">카테고리</option>
-                                <option value="CP">⛺️ 캠핑</option>
-                            </select>
-                        </div>
-                    </li>
-                </ul>
-            </div>
             <div class="container-contents">
-                <section>
-                    <p>asdfasdf</p>
-                    <p>asdfasdf</p>
-                    <p>asdfasdf</p>
-                    <p>asdfasdf</p>
-                    <p>asdfasdf</p>
-                    <p>asdfasdf</p>
-                    <p>asdfasdf</p>
-                    <p>asdfasdf</p>
-                    <p>asdfasdf</p>
-                    <p>asdfasdf</p>
-                    <p>asdfasdf</p>
-                    <p>asdfasdf</p>
-                    <p>asdfasdf</p>
-                    <p>asdfasdf</p>
-                    <p>asdfasdf</p>
-                    <p>asdfasdf</p>
-                    <p>asdfasdf</p>
-                    <p>asdfasdf</p>
-                    <p>asdfasdf</p>
-                    <p>asdfasdf</p>
-                    <p>asdfasdf</p>
-                    <p>asdfasdf</p>
+                <section id="placeListContainer" class="container-place-list active">
+                    <div class="container-conditions">
+                        <ul>
+                            <li>
+                                <div class="container-condition-item mode-dark">
+                                    <span>🔥 인기</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div id="regionConditionContainer" class="container-condition-item mode-dark">
+                                    <div class="background-region"></div>
+                                    <select class="condition-select" id="region" name="region">
+                                        <option value="">지역</option>
+                                        <option value="SI">서울인천</option>
+                                        <option value="GG">경기</option>
+                                        <option value="GW">강원</option>
+                                        <option value="DC">대전충청</option>
+                                        <option value="GJ">광주전라</option>
+                                        <option value="DG">대구경북</option>
+                                        <option value="BG">부산경남</option>
+                                        <option value="JJ">제주</option>
+                                    </select>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="container-condition-item mode-dark">
+                                    <select class="condition-select" id="category" name="category">
+                                        <option value="">카테고리</option>
+                                        <option value="CP">⛺️ 캠핑</option>
+                                    </select>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="placeItemContainer" class="container-place-item">
+                        <ul>
+                            <li class="place-item"></li>
+                            <li class="place-item"></li>
+                            <li class="place-item"></li>
+                            <li class="place-item"></li>
+                            <li class="place-item"></li>
+                            <li class="place-item"></li>
+                            <li class="place-item"></li>
+                            <li class="place-item"></li>
+                        </ul>
+                    </div>
                 </section>
                 <section></section>
                 <section></section>
