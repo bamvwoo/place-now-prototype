@@ -19,7 +19,6 @@
     align-items: center;
     width: inherit;
     max-width: inherit;
-    height: 80px;
     padding: 10px;
     position: fixed;
     top: 0;
@@ -61,4 +60,5 @@ div#wrapper > nav {
     height: 45px;
     position: fixed;
     bottom: 0;
+    z-index: 1;
 }

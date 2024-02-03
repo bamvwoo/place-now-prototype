@@ -10,10 +10,14 @@
 </head>
 <body>
     <div id="wrapper" class="mode-dark">
-        <header>
+        <header class="header-lg">
             <div id="mainLogo"></div>
-            <div id="headerProfileContainer" class="mode-dark">
-                <a class="btn-login" href="#">로그인</a>
+            <div id="hdRightCtn">
+                <div id="tglDarkModeBtnCtn">
+                    <div id="tglDarkModeBtnBg"></div>
+                    <i id="tglDarkModeBtn" class="fa-solid"></i> 
+                </div>
+                <a id="loginBtn" href="#">로그인</a>
             </div>
         </header>
         <main>
@@ -54,14 +58,16 @@
                     </div>
                     <div id="placeItemContainer" class="container-place-item">
                         <ul>
-                            <li class="place-item"></li>
-                            <li class="place-item"></li>
-                            <li class="place-item"></li>
-                            <li class="place-item"></li>
-                            <li class="place-item"></li>
-                            <li class="place-item"></li>
-                            <li class="place-item"></li>
-                            <li class="place-item"></li>
+                            <li class="place-item" style="background-image: url(images/thumbnails/place-item-01.png);"></li>
+                            <li class="place-item" style="background-image: url(images/thumbnails/place-item-02.png);"></li>
+                            <li class="place-item" style="background-image: url(images/thumbnails/place-item-03.png);"></li>
+                            <li class="place-item" style="background-image: url(images/thumbnails/place-item-04.png);"></li>
+                            <li class="place-item" style="background-image: url(images/thumbnails/place-item-05.png);"></li>
+                            <li class="place-item" style="background-image: url(images/thumbnails/place-item-06.png);"></li>
+                            <li class="place-item" style="background-image: url(images/thumbnails/place-item-07.png);"></li>
+                            <li class="place-item" style="background-image: url(images/thumbnails/place-item-08.png);"></li>
+                            <li class="place-item" style="background-image: url(images/thumbnails/place-item-09.png);"></li>
+                            <li class="place-item" style="background-image: url(images/thumbnails/place-item-10.png);"></li>
                         </ul>
                     </div>
                 </section>
@@ -70,17 +76,14 @@
             </div>
         </main>
         <nav>
-            <div class="container-toggle-btn mode-dark">
+            <!-- <div class="container-toggle-btn mode-dark">
                 <div class="toggle-btn"></div>
-            </div>
-            <ul>
-                <li></li>
-            </ul>
+            </div> -->
             <div class="container-ai-chat">
                 <div id="aiChatArea" class="area-ai-chat mode-dark">
                     <div class="header-chat-area">
-                        <i class="fa-solid fa-wand-magic-sparkles"></i> 
-                        <span>AI Chat</span>
+                        <i class="fa-solid fa-comment"></i>
+                        <span>Chat</span>
                     </div>
                     <div class="container-chat-history"></div>
                     <div class="container-prompt">
@@ -90,12 +93,15 @@
                 </div>
                 <div id="openAiChatBtn" class="btn-open-ai-chat mode-dark">
                     <div class="badge-ai-chat-btn">
-                        <p>1</p>
+                        <p>99+</p>
                     </div>
                     <span>NOW</span>
                 </div>
             </div>
         </nav>
+        <div id="modalBackground" class="modal-background">
+            <div class="wave"></div>
+        </div>
     </div>
 </body>
 </html>

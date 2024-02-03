@@ -4,21 +4,35 @@
     transition: .5s ease;
 }
 
+body:has(>.mode-dark),
 #wrapper.mode-dark {
     background-color: var(--main-std-dark-color);
 }
 
+body:has(>.mode-light),
 #wrapper.mode-light {
     background-color: var(--main-std-light-color);
 }
 
 /** HEADER */
 
-#wrapper.mode-dark header {
+#wrapper > header {
+    transition: .3s linear;
+}
+
+#wrapper > header.header-sm {
+    height: 60px;
+}
+
+#wrapper > header.header-lg {
+    height: 80px;
+}
+
+#wrapper.mode-dark > header {
     background-color: var(--main-std-dark-color);
 }
 
-#wrapper.mode-light header {
+#wrapper.mode-light > header {
     background-color: var(--main-std-light-color);
 }
 
@@ -40,25 +54,86 @@
     background-image: url(../images/logo_main_dark.png);
 }
 
-#headerProfileContainer {
-    width: 50px;
+#hdRightCtn {
+    width: 100px;
     height: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     margin-right: 10px;
     cursor: pointer;
 }
 
-#headerProfileContainer .btn-login {
-    font-size: 15px;
+#hdRightCtn #tglDarkModeBtnCtn {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
 }
 
-.mode-dark #headerProfileContainer .btn-login {
+#tglDarkModeBtnCtn #tglDarkModeBtnBg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 0;
+    border-radius: 50%;
+    bottom: -30px;
+    transition: .2s ease-out;
+}
+
+.mode-dark #tglDarkModeBtnBg {
+    background-color: var(--main-std-light-color);
+}
+
+.mode-light #tglDarkModeBtnBg {
+    background-color: var(--main-std-dark-color);
+}
+
+#tglDarkModeBtnCtn:hover #tglDarkModeBtnBg {
+    opacity: .2;
+}
+
+#hdRightCtn #tglDarkModeBtn {
+    width: 100%;
+    height: 100%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    transform-origin: bottom;
+}
+
+#hdRightCtn #tglDarkModeBtn.clicked {
+    animation: tglDarkModeBtnClicked 1s ease-in-out forwards;
+}
+
+@keyframes tglDarkModeBtnClicked {
+    from {
+        transform: rotate(360deg);
+    }
+}
+
+.mode-dark #hdRightCtn #tglDarkModeBtn {
     color: var(--main-std-light-color);
 }
 
-.mode-light #headerProfileContainer .btn-login {
+.mode-light #hdRightCtn #tglDarkModeBtn {
+    color: var(--main-std-dark-color);
+}
+
+#hdRightCtn #loginBtn {
+    font-size: 15px;
+}
+
+.mode-dark #hdRightCtn #loginBtn {
+    color: var(--main-std-light-color);
+}
+
+.mode-light #hdRightCtn #loginBtn {
     color: var(--main-std-dark-color);
 }
 
@@ -97,6 +172,7 @@ div.container-condition-item:has(select.condition-select) {
 }
 
 div.container-condition-item.mode-dark {
+    background-color: var(--main-std-dark-color);
     color: var(--main-std-light-color);
     border: 1.5px solid var(--main-std-light-color);
 }
@@ -108,6 +184,7 @@ div.container-condition-item.mode-dark.selected {
 }
 
 div.container-condition-item.mode-light {
+    background-color: var(--main-std-light-color);
     color: var(--main-std-dark-color);
     border: 1.5px solid var(--main-std-dark-color);
 }
@@ -173,10 +250,10 @@ div#regionConditionContainer div.background-region {
     );
     background-size: 300% 300%;
     background-position: 0 50%;
-    animation: animatedGradient 5s ease alternate infinite;
+    animation: backgroundGradient 5s ease alternate infinite;
 }
 
-@keyframes animatedGradient {
+@keyframes backgroundGradient {
 	50% {
 		background-position: 100% 50%;
 	}
@@ -264,10 +341,10 @@ div.container-toggle-btn.enabled {
 }
 
 div.container-toggle-btn.enabled div.toggle-btn {
-    animation: animatedToggleOn 1s ease forwards;
+    animation: toggleOn 1s ease forwards;
 }
 
-@keyframes animatedToggleOn {
+@keyframes toggleOn {
     50% {
         left: 13px;
     }
@@ -278,12 +355,17 @@ div.container-toggle-btn.enabled div.toggle-btn {
     }
 }
 
+#wrapper > nav {
+    border-radius: 50% 50% 0 0;
+    backdrop-filter: blur(500px);
+}
+
 .mode-dark nav {
-    background-color: #333;
+    background-color: rgba(0, 0, 0, .6);
 }
 
 .mode-light nav {
-    background-color: #c2c2c2;
+    background-color: rgba(255, 255, 255, .6);
 }
 
 div.container-ai-chat {
@@ -292,7 +374,6 @@ div.container-ai-chat {
     justify-content: center;
     align-items: center;
     width: 90%;
-    height: 70vh;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -302,7 +383,8 @@ div.container-ai-chat {
 }
 
 div.container-ai-chat div.area-ai-chat {
-    width: 100%;
+    width: 95%;
+    height: 70vh;
     flex: 1;
     border-radius: 30px;
     padding: 30px;
@@ -310,6 +392,8 @@ div.container-ai-chat div.area-ai-chat {
     margin-bottom: -50px;
     display: flex;
     flex-direction: column;
+    position: absolute;
+    bottom: 60px;
 }
 
 div.container-ai-chat div.area-ai-chat.mode-dark {
@@ -342,12 +426,12 @@ div.container-ai-chat div.area-ai-chat.mode-light:before {
 
 div.container-ai-chat div.area-ai-chat.opened {
     transform-origin: bottom;
-    animation: animatedChatOpen .6s ease-out forwards;
+    animation: chatOpening .6s ease-out forwards;
 }
 
-@keyframes animatedChatOpen {
+@keyframes chatOpening {
     60% {
-        transform-origin: right;
+        transform-origin: center;
         transform: scale(1.01);
 	}
     
@@ -359,10 +443,10 @@ div.container-ai-chat div.area-ai-chat.opened {
 
 div.container-ai-chat div.area-ai-chat.closed {
     transform-origin: top;
-    animation: animatedChatClose .6s ease-out forwards;
+    animation: chatClosing .6s ease-out forwards;
 }
 
-@keyframes animatedChatClose {
+@keyframes chatClosing {
     0% {
         transform: scale(1.01);
     }
@@ -387,7 +471,7 @@ div.container-ai-chat div.area-ai-chat > .header-chat-area * {
     -webkit-user-select:none;
     -moz-user-select:none;
     -ms-user-select:none;
-    user-select:none
+    user-select:none;
 }
 
 div.container-ai-chat div.area-ai-chat > .header-chat-area i {
@@ -462,6 +546,35 @@ div.container-ai-chat div.btn-open-ai-chat {
     position: relative;
 }
 
+div.container-ai-chat div.btn-open-ai-chat.clicked {
+    animation: .5s openChatBtnClicked !important;
+}
+
+@keyframes openChatBtnClicked {
+    0% {
+        scale: 1;
+        transition-timing-function: ease-out;
+    }
+
+    20% {
+        transform: scaleY(0.9);
+        transition-timing-function: ease-in;
+    }
+
+    40% {
+        transform: scaleX(0.9);
+    }
+
+    80% {
+        scale: 1.1;
+        transition-timing-function: ease-out;
+    }
+
+    80% {
+        scale: 1;
+    }
+}
+
 div.container-ai-chat div.btn-open-ai-chat.mode-dark {
     background: linear-gradient(310deg, #f40000, #0490ed);
     background-size: 150% 150%;
@@ -476,7 +589,7 @@ div.container-ai-chat div.btn-open-ai-chat.mode-light {
 
 div.container-ai-chat div.btn-open-ai-chat:hover,
 div.container-ai-chat div.btn-open-ai-chat.selected {
-    animation: animatedGradient 3s ease alternate infinite;
+    animation: backgroundGradient 3s ease alternate infinite;
 }
 
 div.container-ai-chat div.btn-open-ai-chat div.badge-ai-chat-btn {
@@ -520,17 +633,78 @@ div.container-ai-chat div.btn-open-ai-chat span {
 
 .place-item {
     height: 300px;
+    display: flex;
     border-radius: 20px;
     margin-bottom: 20px;
     cursor: pointer;
+    background-size: cover;
+    transition: .3s ease-in;
 }
 
 .mode-dark .place-item {
-    background-color: #666;
     box-shadow: 5px 5px 1px #333;
 }
 
+.mode-dark .place-item:hover {
+    box-shadow: -5px -5px 1px #333;
+}
+
 .mode-light .place-item {
-    background-color: #f2f2f2;
     box-shadow: 5px 5px 1px #c2c2c2;
+}
+
+.mode-light .place-item:hover {
+    box-shadow: -5px -5px 1px #c2c2c2;
+}
+
+.modal-background {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.modal-background .wave {
+    width: 80vw;
+    height: 80vw;
+    bottom: -40vw;
+    left: 0;
+    right: 0;
+    position: absolute;
+    margin: 0 auto;
+    background-color: rgb(255, 255, 255, .1);
+    backdrop-filter: blur(.5px);
+    border-radius: 50%;
+    transform: scale(0);
+    box-shadow: 5px 5px 30px rgba(255, 255, 255, .3);
+}
+
+.modal-background.opened .wave {
+    animation: spread .5s ease-in-out forwards;
+}
+
+.modal-background.closed .wave {
+    animation: spreadReverse .5s ease-out forwards;
+}
+
+@keyframes spread {
+    from {
+        transform: rotate(0deg) scale(0);
+    }
+    
+    to {
+        transform: rotate(180deg) scale(6);
+    }
+}
+
+@keyframes spreadReverse {
+    from {
+        transform: rotate(180deg) scale(6);
+    }
+    
+    to {
+        transform: rotate(0deg) scale(0);
+    }
 }
